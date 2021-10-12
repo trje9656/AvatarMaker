@@ -578,6 +578,7 @@
                         <outlet property="imageEyes" destination="bIQ-5G-sgr" id="TOt-1G-n0U"/>
                         <outlet property="imageNose" destination="30e-Jr-L9e" id="djE-te-go4"/>
                         <outlet property="imageTop" destination="PKl-7Y-qUx" id="4gx-d0-6H4"/>
+                        <outlet property="saveButton" destination="PlV-ni-2Bx" id="1VD-Cq-Tsk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageEyes: UIImageView!
     @IBOutlet weak var imageNose: UIImageView!
     @IBOutlet weak var imageBottom: UIImageView!
+    @IBOutlet weak var saveButton: UIButton!
     var top_tracker = 5
     var eye_tracker = 5
     var nose_tracker = 5
@@ -34,6 +35,12 @@ class ViewController: UIViewController {
             
                guard let img = image else { return }
                UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+            saveButton.setTitle("Saved to Photos", for: UIControl.State.normal)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                self.saveButton.setTitle("save screenshot", for: UIControl.State.normal)
+                
+                }//https://stackoverflow.com/questions/28821722/delaying-function-in-swift
             
             //https://www.tutorialspoint.com/how-to-take-a-screenshot-programmatically-in-iphone-ios
             //I couldn't figure out in time how to keep the screenshot confined to the location of the stack view containing multiple image views
