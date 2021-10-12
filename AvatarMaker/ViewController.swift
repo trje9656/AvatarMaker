@@ -17,13 +17,27 @@ class ViewController: UIViewController {
     var eye_tracker = 5
     var nose_tracker = 5
     var bottom_tracker = 5
+    
     @IBAction func saveAvatar(_ sender: UIButton) {
-        UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0);
-        self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        var image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
-
-        UIGraphicsEndImageContext();
+        if sender.tag == 13 {
+            //screenshot()
+            
+               var image :UIImage?
+               let currentLayer = UIApplication.shared.keyWindow!.layer
+               let currentScale = UIScreen.main.scale
+               UIGraphicsBeginImageContextWithOptions(currentLayer.frame.size, false, currentScale);
+               guard let currentContext = UIGraphicsGetCurrentContext() else {return}
+               currentLayer.render(in: currentContext)
+               image = UIGraphicsGetImageFromCurrentImageContext()
+               UIGraphicsEndImageContext()
+               guard let img = image else { return }
+               UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+            
+            
+        }
+        
     }
+   
     
     @IBAction func topChange(_ sender: UIButton) {
         
