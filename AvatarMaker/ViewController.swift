@@ -30,10 +30,16 @@ class ViewController: UIViewController {
                currentLayer.render(in: currentContext)
                image = UIGraphicsGetImageFromCurrentImageContext()
                UIGraphicsEndImageContext()
+        
+            
                guard let img = image else { return }
                UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
             
-            
+            //https://www.tutorialspoint.com/how-to-take-a-screenshot-programmatically-in-iphone-ios
+            //I couldn't figure out in time how to keep the screenshot confined to the location of the stack view containing multiple image views
+            //I did find this https://stackoverflow.com/questions/12687909/ios-screenshot-part-of-the-screen but its in obj c
+            //I also found this https://stackoverflow.com/questions/30696307/how-to-convert-a-uiview-to-an-image
+            // but it seems to be in swiftUI and not storyboard
         }
         
     }
